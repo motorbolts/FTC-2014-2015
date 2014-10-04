@@ -90,7 +90,7 @@ task main()
 
   while (true)
   {
-	  if (joystick.joy1_y1 < 5 && joystick.joy1_y1 > -5)
+	  if (joystick.joy1_y1 < 5 && joystick.joy1_y1 > -5) //left joystick of driver 1 moves left side of robot
 	  {
 	  	motor(leftwheelA) = 0;
 	  	motor(leftwheelB) = 0;
@@ -101,7 +101,7 @@ task main()
 	  	motor(leftwheelB) = joystick.joy1_y1;
 	  }
 
-	   if (joystick.joy1_y2 < 5 && joystick.joy1_y2 > -5)
+	   if (joystick.joy1_y2 < 5 && joystick.joy1_y2 > -5) //right joystick of driver 1 moves right side of robot
 	  {
 	  	motor(rightwheelA) = 0;
 	  	motor(rightwheelB) = 0;
@@ -111,7 +111,7 @@ task main()
 	  	motor(rightwheelA) = joystick.joy1_y1;
 	  	motor(rightwheelB) = joystick.joy1_y1;
 	  }
-	  if (joystick.joy2_y1 < 5 && joystick.joy2_y1 > -5)
+	  if (joystick.joy2_y1 < 5 && joystick.joy2_y1 > -5) //left joystick of driver 2 lifts elevator
 	  {
 	  	motor(lift1) = 0;
 	  	motor(lift2) = 0;
@@ -121,7 +121,7 @@ task main()
 	  	motor(lift1) = joystick.joy2_y1;
 	  	motor(lift2) = joystick.joy2_y1;
 	  }
-	  if (joystick.joy2_y2 < 5 && joystick.joy2_y2 > -5)
+	  if (joystick.joy2_y2 < 5 && joystick.joy2_y2 > -5) //right joystick of driver 2 swings "mailbox" (dumper)
 	  {
 	  	motor(swing) = 0;
 	  }
@@ -129,11 +129,11 @@ task main()
 	  {
 	  	motor(swing) = joystick.joy2_y2;
 	  }
-	  if (joy2Btn(7 == 1))
+	  /*if (joy2Btn(7 == 1)) //right trigger of driver 2 reverses collector
 	  {
 	  	motor(collector) = -75;
 	  }
-	  if (joy2Btn(8 == 1))
+	  if (joy2Btn(8 == 1)) //left trigger of driver 2 runs collector
 	  {
 	  	motor(collector) = 75;
 	  }
@@ -141,14 +141,18 @@ task main()
 	  {
 	  	motor(collector) = 0;
 	  }
-
-	  if (joy1Btn(7 == 1))
+*/
+	  if (joy1Btn(7 == 1)) //right trigger of driver 1 makes hitch go up
 	  {
 	  	servo(hitch) = 75; //UPDATE VALUE
 	  }
-	  if (joy1Btn(8 == 1))
+	  if (joy1Btn(8 == 1)) //left trigger of driver 1 drops hitch
 	  {
 	  	servo(hitch) = 0; //UPDATE VALUE
+	  }
+	  if (joy1Btn(3 == 1)) //Y button of driver 1 makes hitch halfway up/down CHECK BUTTON VALUE!!!
+	  {
+	  	servo(hitch) = 37; //UPDATE VALUE
 	  }
 	}
 }
