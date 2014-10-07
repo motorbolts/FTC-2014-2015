@@ -1,7 +1,6 @@
 #pragma config(Hubs,  S1, HTMotor,  HTMotor,  HTMotor,  HTMotor)
 #pragma config(Hubs,  S2, HTServo,  none,     none,     none)
-#pragma config(Sensor, S1,     ,               sensorI2CMuxController)
-#pragma config(Sensor, S2,     ,               sensorI2CMuxController)
+#pragma config(Sensor, S3,     IR,             sensorHiTechnicIRSeeker1200)
 #pragma config(Motor,  motorA,           ,             tmotorNXT, openLoop)
 #pragma config(Motor,  motorB,           ,             tmotorNXT, openLoop)
 #pragma config(Motor,  motorC,           ,             tmotorNXT, openLoop)
@@ -33,6 +32,7 @@
 /////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #include "JoystickDriver.c"  //Include file to "handle" the Bluetooth messages.
+#include "SUBROUTINE_COMP.c" //subroutine folder
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -59,41 +59,34 @@ void initializeRobot()
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//                                         Main Task
-//
-// The following is the main code for the autonomous robot operation. Customize as appropriate for
-// your specific robot.
-//
-// The types of things you might do during the autonomous phase (for the 2008-9 FTC competition)
-// are:
-//
-//   1. Have the robot follow a line on the game field until it reaches one of the puck storage
-//      areas.
-//   2. Load pucks into the robot from the storage bin.
-//   3. Stop the robot and wait for autonomous phase to end.
-//
-// This simple template does nothing except play a periodic tone every few seconds.
-//
-// At the end of the autonomous period, the FMS will autonmatically abort (stop) execution of the program.
-//
-/////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                                                             //
+//                                         Main Task                                                           //
+//                                                                                                             //
+// The following is the main code for the autonomous robot operation. Customize as appropriate for             //
+// your specific robot.                                                                                        //
+//                                                                                                             //
+// The types of things you might do during the autonomous phase (for the 2008-9 FTC competition)               //
+// are:                                                                                                        //
+//                                                                                                             //
+//   1. Have the robot follow a line on the game field until it reaches one of the puck storage                //
+//      areas.                                                                                                 //
+//   2. Load pucks into the robot from the storage bin.                                                        //
+//   3. Stop the robot and wait for autonomous phase to end.                                                   //
+//                                                                                                             //
+// This simple template does nothing except play a periodic tone every few seconds.                            //
+//                                                                                                             //
+// At the end of the autonomous period, the FMS will autonmatically abort (stop) execution of the program.     //
+//                                                                                                             //
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 task main()
 {
   initializeRobot();
 
-  waitForStart(); // Wait for the beginning of autonomous phase.
+  void driveforward(75,3000);
 
-  ///////////////////////////////////////////////////////////
-  ///////////////////////////////////////////////////////////
-  ////                                                   ////
-  ////    Add your robot specific autonomous code here.  ////
-  ////                                                   ////
-  ///////////////////////////////////////////////////////////
-  ///////////////////////////////////////////////////////////
 
-  while (true)
-  {}
+
+
 }
