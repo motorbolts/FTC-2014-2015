@@ -157,7 +157,7 @@ task main()
 				servo(servoH) = 80;
 			}
 
-		if (joystick.joy2_y1 < 5 && joystick.joy2_y1 > -5) //left joystick of driver 1 moves left side of robot
+		if (joystick.joy2_y1 < 5 && joystick.joy2_y1 > -5) //left joystick of driver 2 moves the swing
 	  {
 	  	motor(swing) = 0;
 	  }
